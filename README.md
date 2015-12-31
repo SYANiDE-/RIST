@@ -15,12 +15,12 @@ Download current stable source:
 
 **Changelog 1.01**
 * Added threading for parallelism between requests  (this will be extremely nice in future works)
-* Created Github repo to centralize
-*IN IP sources:
+* Created Github repo to centralize efforts
+* IN IP sources:
   * Added IPVoid
   * Added WebHostingHero
   * Added Hetrix
-*IN URL sources:
+* IN URL sources:
   * Fixed TrendMicro
   * Fixed Virustotal
   * Fixed URLVoid
