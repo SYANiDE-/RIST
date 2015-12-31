@@ -1,5 +1,3 @@
-import pickle
-
 ipsources = [
                 ["Robtex",              "http://www.robtex.com/en/advisory/ip/"],
                 ["TCPUtils",            "http://www.tcpiputils.com/browse/ip-address/"],

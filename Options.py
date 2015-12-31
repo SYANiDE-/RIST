@@ -1,12 +1,12 @@
 import Tkinter as TK, sources
-from webbrowser import open as wopen
+from webbrowser import open_new_tab as wopen, get as wget
 from clipboard import paste as clippaste
 from pickle import load as pload
 from pickle import dump as pdump
 from os import path
 from re import match
-import thread
 import threading
+
 
 
 class option(TK.Frame):
@@ -146,16 +146,14 @@ class option(TK.Frame):
             self.tbox["background"] = "White"
             self.tbox["foreground"] = "Black"
             counter = 0
-            thread_list = []
+            jobs_list = []
             for x in xrange(len(sources[:])):
                 if values[0][x].get():
-                    openthis = trigger[x](str(etext.get()), sources, x)
-                    if openthis != "":
-                        # t = threading.Thread(target=wopen, args=(openthis, ))
-                        # thread_list.append(t)
-                        thread.start_new_thread(wopen, (openthis, ))
-            #for thread in thread_list:
-            #   thread.start()
+                    thread = threading.Thread(target=self.TaskHandler, args=(x, ))
+                    thread.setDaemon(True)
+                    jobs_list.append(thread)
+            for j in jobs_list:
+                j.start()
             for line in open(self.read, 'r'):
                 if text in line:
                     counter = counter +1
@@ -204,3 +202,8 @@ class option(TK.Frame):
             if counter > 20-1 else 8 if counter > 25-1 else 9
         row = counter%5
         c.grid(column=col, row=row, sticky="Nw")
+
+    def TaskHandler(self, index):
+        openthis = self.trigger[index](str(self.etext.get()), self.sources, index)
+        if openthis != "":
+            wopen(openthis)

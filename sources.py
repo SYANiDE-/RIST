@@ -1,4 +1,4 @@
-from os import path, makedirs
+from os import makedirs
 import MakeSourceList
 from source_methods import *
 

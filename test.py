@@ -1,30 +1,22 @@
-
-import random
-import urllib, urllib2
-import requests
-from os import path
-import webbrowser
-from bs4 import BeautifulSoup
 import mechanize
-import time
 
 """
 this = {"sha256": "79e874a35dc04cacf3dad5fe573aac297f8ee1252d034edeea4ceeaf87a7915b"}
 print this.values()[0]
 
 """
-source = 'https://www.webhostinghero.com/blacklists/'
-URL = 'http://stackoverflow.com/questions/9249996/mechanize-cannot-read-form-with-submitcontrol-that-is-disabled-and-has-no-value'
+source = 'https://www.virustotal.com/'
+URL = 'http://www.top10bestdatingsites.com/best10dating?utm_source=taboolaNI&utm_medium=spartzmedia-dose&utm_campaign=T550&a=T550&ts=tabdat&taboola_campaign=181767'
 IP = '196.53.23.10'
 
 br = mechanize.Browser()
 br.addheaders = [('User-agent', 'Mozilla/5.0')]
 br.open(source)
-br.select_form(nr=0)
-br['ip']=IP
+br.form= list(br.forms())[1]
+br['url']=URL
 response = br.submit()
 this = response.read()
-this = (this.split('class="loader" id="')[1:])[0].split('">')[0]
+# this = (this.split('class="loader" id="')[1:])[0].split('">')[0]
 # this = (this.split('? Check ')[1:])[0].split(' with multiple blacklists')[0]
 # this = (this.split('/submission/show/')[1:])[0].split('" title="View')[0]
 print(this)

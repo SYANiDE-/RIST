@@ -1,6 +1,6 @@
 from random import randint
-import urllib, urllib2
-from requests import Session, get, post
+import urllib
+from requests import Session
 from os import path
 import mechanize
 
@@ -87,7 +87,9 @@ class URLLinks():
         br['url'] = URL
         response = br.submit()
         this = response.read()
-        return sources[index][1] + 'en/url/' + (this.split('": "')[1:2])[0].split('", "')[0] + '/analysis/'
+        this = this.split('analysis_url": "')[1]
+        this = this.split('"')[0]
+        return sources[index][1] + this[1:]
 
     def URLVoid(self, URL, sources, index):
         br = mechanize.Browser()
@@ -129,12 +131,11 @@ class URLLinks():
         br['submission[submission]']=URL
         response = br.submit()
         this = response.read()
-        try:
-            this = (this.split('/submission/show/')[1:])[0].split('" title="View')[0]
-        except:
-            pass
-        try:
-            this = (this.split('status/')[1:])[0].split("', function")[0]
-        except:
-            pass
+        if this.find('/submission/show/status/') != -1:
+            this = (this.split("/submission/show/status/")[1:])[0]
+            this = (this.split("'")[0:])[0]
+        if this.find('href="/submission/show/') != -1:
+            this = (this.split('href="/submission/show/')[1:])[0]
+            this = (this.split('"')[0:])[0]
         return sources[index][1] + 'submission/show/' + this
+
