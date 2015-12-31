@@ -1,7 +1,7 @@
 # RIST
 RIST Reputation Investigation Spawn Tool
 
-Download current stable:
+Download current stable Windows binaries:
 [W32 Binary package](../RIST_1.02.12312015.binary.w32.rar?raw=true)
 
 Download current stable source:
@@ -16,11 +16,11 @@ Download current stable source:
 **Changelog 1.01**
 * Added threading for parallelism between requests  (this will be extremely nice in future works)
 * Created Github repo to centralize
-IN IP sources:
+*IN IP sources:
   * Added IPVoid
   * Added WebHostingHero
   * Added Hetrix
-IN URL sources:
+*IN URL sources:
   * Fixed TrendMicro
   * Fixed Virustotal
   * Fixed URLVoid
