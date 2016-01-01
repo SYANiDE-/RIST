@@ -2,10 +2,10 @@
 RIST Reputation Investigation Spawn Tool
 
 Download current stable Windows binaries:
-[W32 Binary package](https://github.com/SYANiDE-/RIST/RIST_1.02.12312015.binary.w32.rar?raw=true)
+[W32 Binary package](https://github.com/SYANiDE-/RIST/blob/master/RIST_1.02.12312015.binary.w32.rar?raw=true)
 
 Download current stable source:
-[Python source package](https://github.com/SYANiDE-/RIST/RIST_1.02.12312015.source.python27.rar?raw=true)
+[Python source package](https://github.com/SYANiDE-/RIST/blob/master/RIST_1.02.12312015.source.rar?raw=true)
 
 
 **Changelog 1.02**
