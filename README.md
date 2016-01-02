@@ -10,7 +10,7 @@ Download current stable source:
 
 **Changelog 1.02**
 * Fixed Virustotal and ZScalerZulu not opening correct results pages on occasion
-* Fixed threading issues
+* Fixed threading issues; query-against-sources operations are now fully independent threads for true parallelism.   No blocking between operations.
 * This Github page is opened in new tab at program startup;  two-fold benefits:  1. Ensures a browser is already open, 2. Easier tracking of updates and news/issues/announcements.
 
 
