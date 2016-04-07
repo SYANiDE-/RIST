@@ -4,6 +4,8 @@ from requests import Session
 from os import path
 import mechanize
 
+
+
 class IPLinks():
     def Robtex(self, IP, sources, index):
         PATH=str(sources[index][1]+ IP.replace(".", "/", 3) + "/")
@@ -57,6 +59,28 @@ class IPLinks():
         PATH = str(sources[index][1] + IP)
         return PATH
 
+    def VirusTotal(self, IP, sources, index):
+        PATH = str(sources[index][1] + IP + "/information/" )
+        return PATH
+
+    def AntiAbuseProject(self, IP, sources, index):
+        PATH = str(sources[index][1] + IP)
+        return PATH
+
+
+    def AbuseIPDB(self, IP, sources, index):
+        PATH = str(sources[index][1] + IP)
+        return PATH
+
+    def ProjectHoneypot(self, IP, sources, index):
+        PATH = str(sources[index][1] + IP)
+        return PATH
+
+
+    def Deepviz(self, IP, sources, index):
+        PATH = str(sources[index][1] + IP)
+        return PATH
+
 
 class URLLinks():
     def ScanURL(self, URL, sources, index):
@@ -80,7 +104,7 @@ class URLLinks():
         t.close()
         return pathtofile
 
-    def VirusTotal(self, URL, sources, index):
+    def VirusTotal_URL(self, URL, sources, index):
         br = mechanize.Browser()
         br.open(sources[index][1] + '?#url')
         br.form= list(br.forms())[1]
@@ -90,6 +114,9 @@ class URLLinks():
         this = this.split('analysis_url": "')[1]
         this = this.split('"')[0]
         return sources[index][1] + this[1:]
+
+    def VirusTotal_DOMAIN(self, URL, sources, index):
+        return sources[index][1] + shortenToFQDN(self, URL) +"/information/"
 
     def URLVoid(self, URL, sources, index):
         br = mechanize.Browser()
@@ -139,3 +166,75 @@ class URLLinks():
             this = (this.split('"')[0:])[0]
         return sources[index][1] + 'submission/show/' + this
 
+    def MultiRBL(self, URL, sources, index):
+        PATH = str(sources[index][1] + shortenToFQDN(self, URL))
+        return PATH
+
+    def DomainCheckTool(self, URL, sources, index):
+        PATH = str(sources[index][1] + shortenToFQDN(self, URL) + "/")
+        return PATH
+
+    def DNSStuff_man(self, URL, sources, index):
+        URL = "manual" + URL
+        PATH = str(sources[index][1])
+        return PATH
+
+    def Sucuri(self, URL, sources, index):
+        PATH = str(sources[index][1] + shortenToFQDN(self, URL))
+        return PATH
+
+    def Deepviz_URL(self, URL, sources, index):
+        PATH = str(sources[index][1] + urllib.quote_plus(URL))
+        return PATH
+
+    def Deepviz_DOMAIN(self, URL, sources, index):
+        PATH = str(sources[index][1] + shortenToFQDN(self, URL))
+        return PATH
+
+    def vURL(self, URL, sources, index):
+        PATH = str(sources[index][1] + urllib.quote_plus(URL) + "&btnvURL=Dissect&selUAStr=1&selServer=0&ref=&cbxSource=on&cbxBlacklist=on")
+        return PATH
+
+
+class SPECIALLinks():
+
+    def WinEventID(self, SPEC, sources, index):
+        PATH = str(sources[index][1] + SPEC)
+        return PATH
+
+    def VirusTotal_HASH(self, SPEC, sources, index):
+        br = mechanize.Browser()
+        br.addheaders = [('User-agent', 'Mozilla/5.0')]
+        br.open(sources[index][1] + "en/#search")
+        br.form = list(br.forms())[2]
+        br['query'] = SPEC
+        response = br.submit()
+        this = response.read()
+        if this.find("/en/file/not/found/") != -1:
+            return "https://virustotal.com/en/file/not/found/"
+        else:
+            return "https://virustotal.com/en/file/" + SPEC + "/analysis/"
+
+    def CVE_lookup(self, SPEC, sources, index):
+        PATH = str(sources[index][1] + SPEC)
+        return PATH
+
+
+
+
+
+
+### Methods exterior of class
+def shortenToFQDN(self, URL):
+    temp = ""
+    if URL.find('://') != -1:
+        temp = (URL.split('://')[1:])[0]
+        if temp.find('/') != -1:
+            temp = (temp.split('/')[0:])[0]
+    else:
+        if URL.find('/') != -1:
+            temp = (URL.split('/')[0:])[0]
+    if temp == "":
+        return(URL)
+    else:
+        return(temp)

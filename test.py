@@ -1,12 +1,90 @@
 import mechanize
+import urllib
+from webbrowser import open as wopen
+
 
 """
 this = {"sha256": "79e874a35dc04cacf3dad5fe573aac297f8ee1252d034edeea4ceeaf87a7915b"}
 print this.values()[0]
 
 """
+theSHA="http://builtwith.com/http://mxtoolbox.com/SuperTool.aspx?action=blacklist197.44.232.1&run=toolpage"
+URL = 'http://urlquery.net/'
+br = mechanize.Browser()
+br.addheaders = [('User-agent', 'Mozilla/5.0')]
+br.open(URL)
+br.form = list(br.forms())[0]
+print(br.form)
+
+
+
+"""br['h'] = theSHA
+response = br.submit()
+this = response.read()
+print(this)"""
+
+
+
+"""br['query'] = theSHA
+    response = br.submit()
+    this = response.read()
+    if this.find("/en/file/not/found/") != -1:
+        print("https://virustotal.com/en/file/not/found/")
+    else:
+        print("https://virustotal.com/en/file/" + theSHA + "/analysis/")
+    #    wopen("https://virustotal.com/en/file/79e874a35dc04cacf3dad5fe573aac297f8ee1252d034edeea4ceeaf87a7915b/analysis/)
+"""
+
+
+
+#wopen("https://virustotal.com/en/file/" + theSHA + "/analysis/")
+"""
+this all sort of worked...  the function def works just fine of course.
+def shortenToFQDN(URL):
+    temp = ""
+    if URL.find('://') != -1:
+        temp = (URL.split('://')[1:])[0]
+        if temp.find('/') != -1:
+            temp = (temp.split('/')[0:])[0]
+    else:
+        if URL.find('/') != -1:
+            temp = (URL.split('/')[0:])[0]
+    if temp == "":
+        return(URL)
+    else:
+        return(temp)
+
+
+
+
+URL = 'https://www.virustotal.com/'
+aURL = 'https://wiki.archlinux.org/index.php/Systemd-networkd'
+IP = '196.53.23.10'
+
+br = mechanize.Browser()
+br.addheaders = [('User-agent', 'Mozilla/5.0')]
+br.open(URL + "en/#search")
+br.form = list(br.forms())[2]
+br['query'] = shortenToFQDN(aURL)
+response = br.submit()
+this = response.read()
+this = this.split(' href="/en/domain')[1]
+this = this.split('"')[0]
+print URL + "en/domain" + this
+print(this)
+# br['url']=URL
+# response = br.submit()
+# this = response.read()
+# this = (this.split('class="loader" id="')[1:])[0].split('">')[0]
+# this = (this.split('? Check ')[1:])[0].split(' with multiple blacklists')[0]
+# this = (this.split('/submission/show/')[1:])[0].split('" title="View')[0]
+
+"""
+
+
+"""
 source = 'https://www.virustotal.com/'
-URL = 'http://www.top10bestdatingsites.com/best10dating?utm_source=taboolaNI&utm_medium=spartzmedia-dose&utm_campaign=T550&a=T550&ts=tabdat&taboola_campaign=181767'
+URL = 'https://www.google.com/?gws_rd=ssl#q=tkinter+make+grab+handle+for+window+corners'
 IP = '196.53.23.10'
 
 br = mechanize.Browser()
@@ -20,6 +98,17 @@ this = response.read()
 # this = (this.split('? Check ')[1:])[0].split(' with multiple blacklists')[0]
 # this = (this.split('/submission/show/')[1:])[0].split('" title="View')[0]
 print(this)
+"""
+
+
+
+
+
+
+
+
+
+
 """
 br.form= list(br.forms())[0]
 br['url'] = URL
