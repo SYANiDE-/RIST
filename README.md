@@ -1,9 +1,9 @@
 # RIST 1.03a
 RIST Reputation Investigation Spawn Tool
 
-[RIST Reputation Investigation Spawn Tool](http://storage8.static.itmages.com/i/16/0411/h_1460364482_8760621_9120c165f1.png "RIST Reputation Investigation Spawn Tool")
+![RIST Reputation Investigation Spawn Tool](http://storage8.static.itmages.com/i/16/0411/h_1460364482_8760621_9120c165f1.png "RIST Reputation Investigation Spawn Tool")
 
-[RIST Reputation Investigation Spawn Tool](http://storage3.static.itmages.com/i/16/0411/h_1460364531_2617912_7f565353a2.png "RIST Reputation Investigation Spawn Tool")
+![RIST Reputation Investigation Spawn Tool](http://storage3.static.itmages.com/i/16/0411/h_1460364531_2617912_7f565353a2.png "RIST Reputation Investigation Spawn Tool")
 
 
 Download current stable Windows binaries:
