@@ -88,7 +88,7 @@ class option(TK.Frame):
             self.links = self.a.SPECIALLinks
             self.values = TK.IntVar()
             for x in xrange(0, len(self.sources[:])):
-                self.addRadio(self.sources[x][0], x, self.sources[x][1])
+                self.addRadio(self.sources[x][0], x, x+1)
             self.ip_chb_define(self.sources, self.values, self.trigger, self.etext, self.links)
         self.update()
 
@@ -244,7 +244,7 @@ class option(TK.Frame):
                 for line in open(self.read, 'r'):
                     if text in line:
                         counter = counter +1
-                    for line2 in open(self.blread, 'r'):
+                    for line in open(self.blread, 'r'):
                         if text in line:
                             counter = counter +1
                 if counter == 0:
@@ -297,15 +297,15 @@ class option(TK.Frame):
         row = counter%5
         c.grid(column=col, row=row, sticky="Nw")
 
-    def TaskHandler(self, index, baseURL="none"):
+    def TaskHandler(self, index):
+        openthis=""
         if not (self.thetype == "SPECs"):
             openthis = self.trigger[index](str(self.etext.get()), self.sources, index)
             if openthis != "":
                 wopen(openthis)
         else:
             for x in xrange(0, len(self.sources[:])):
-                for name, baseurl in self.sources:
-                    if self.sources[x][1] == baseurl:
-                        openthis = self.trigger[x](str(self.etext.get()), self.sources, x)
+                if self.values.get() == x+1:
+                    openthis = self.trigger[x](str(self.etext.get()), self.sources, x)
             if openthis != "":
                 wopen(openthis)

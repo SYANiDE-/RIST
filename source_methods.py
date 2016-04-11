@@ -193,6 +193,8 @@ class URLLinks():
 
     def vURL(self, URL, sources, index):
         PATH = str(sources[index][1] + urllib.quote_plus(URL) + "&btnvURL=Dissect&selUAStr=1&selServer=0&ref=&cbxSource=on&cbxBlacklist=on")
+        if not PATH.find("://") != -1:
+            PATH = "http://" + PATH
         return PATH
 
 
@@ -215,11 +217,13 @@ class SPECIALLinks():
         else:
             return "https://virustotal.com/en/file/" + SPEC + "/analysis/"
 
-    def CVE_lookup(self, SPEC, sources, index):
+    def CVE_mitre(self, SPEC, sources, index):
         PATH = str(sources[index][1] + SPEC)
         return PATH
 
-
+    def CVE_details(self, SPEC, sources, index):
+        PATH = str(sources[index][1] + SPEC + "/")
+        return PATH
 
 
 

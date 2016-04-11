@@ -41,7 +41,8 @@ urlsources = [
 specialsources = [
                 ["WinEventID",          "https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid="],
                 ["VirusTotal_HASH",     "https://www.virustotal.com/"],
-                ["CVE_lookup",          "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-"]
+                ["CVE_mitre",           "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-"],
+                ["CVE_details",         "https://www.cvedetails.com/cve/CVE-"]
 
                 ]
 
