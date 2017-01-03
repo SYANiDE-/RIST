@@ -4,7 +4,7 @@ from webbrowser import open as wopen
 
 if __name__ == "__main__":
     rw = tk()
-    rw.title("RIST Reputation Investigation Spawn Tool v.1.03 Apr16")
+    rw.title("RIST Reputation Investigation Spawn Tool v.1.04 Jan2017")
     rw.geometry("600x300")
     A = Options.option(rw, thetype="IPs")
     A.grid(sticky="NW")

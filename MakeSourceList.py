@@ -13,7 +13,12 @@ ipsources = [
                 ["AntiAbuseProject",    "http://www.anti-abuse.org/multi-rbl-check-results/?host="],
                 ["AbuseIPDB",           "https://www.abuseipdb.com/report-history/"],
                 ["ProjectHoneypot",     "https://www.projecthoneypot.org/ip_"],
-                ["Deepviz",             "https://search.deepviz.com/?s="]
+                ["Deepviz",             "https://search.deepviz.com/?s="],
+                ["M_webroot_brightcloud", "http://www.brightcloud.com/tools/url-ip-lookup.php"],
+                ["M_malwareURL_IP",        "http://malwareurl.com/listing-urls.php"],
+                ["Alienvault_IP",   "https://otx.alienvault.com/browse/pulses/?q="],
+                ["IBM_XForce_IP",   "https://exchange.xforce.ibmcloud.com/search/"],
+                ["ThreatMiner_IP",  "https://www.threatminer.org/host.php?q="]
 
             ]
 
@@ -35,8 +40,18 @@ urlsources = [
                 ["Sucuri",              "https://sitecheck.sucuri.net/results/"],
                 ["Deepviz_URL",         "https://search.deepviz.com/?s="],
                 ["Deepviz_DOMAIN",      "https://search.deepviz.com/?s="],
-                ["vURL",                "http://vurl.mysteryfcm.co.uk/default.asp?url="]
-             ]
+                ["M_urlquery",          "http://urlquery.net/index.php"],
+                ["M_onlinelinkscan",    "http://onlinelinkscan.com"],
+                ["M_webroot_brightcloud",    "http://www.brightcloud.com/tools/url-ip-lookup.php"],
+                ["M_malwareURL",        "http://malwareurl.com/listing-urls.php"],
+                ["M_UnmaskParasites",   "http://www.unmaskparasites.com/security-report/"],
+                ["M_BuiltWith",         "https://builtwith.com"],
+                ["Alienvault_DOMAIN",   "https://otx.alienvault.com/browse/pulses/?q="],
+                ["IBM_XForce_DOMAIN",   "https://exchange.xforce.ibmcloud.com/search/"],
+                ["ThreatMiner_DOMAIN",  "https://www.threatminer.org/domain.php?q="]
+
+
+]
 
 specialsources = [
                 ["WinEventID",          "https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid="],

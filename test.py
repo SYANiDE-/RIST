@@ -8,12 +8,14 @@ this = {"sha256": "79e874a35dc04cacf3dad5fe573aac297f8ee1252d034edeea4ceeaf87a79
 print this.values()[0]
 
 """
-theSHA="http://builtwith.com/http://mxtoolbox.com/SuperTool.aspx?action=blacklist197.44.232.1&run=toolpage"
-URL = 'http://urlquery.net/'
+#ctheSHA="http://builtwith.com/http://mxtoolbox.com/SuperTool.aspx?action=blacklist197.44.232.1&run=toolpage"
+URL = 'http://unmaskparasites.com/security-report/'
 br = mechanize.Browser()
-br.addheaders = [('User-agent', 'Mozilla/5.0')]
+br.set_handle_referer(False)
+br.addheaders = [('User-agent', 'Mozilla/5.0'),
+                 ('Referer', 'boo.yoyo.org')]
 br.open(URL)
-br.form = list(br.forms())[0]
+br.form = list(br.forms())[1]
 print(br.form)
 
 

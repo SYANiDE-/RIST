@@ -76,10 +76,30 @@ class IPLinks():
         PATH = str(sources[index][1] + IP)
         return PATH
 
-
     def Deepviz(self, IP, sources, index):
         PATH = str(sources[index][1] + IP)
         return PATH
+
+    def M_webroot_brightcloud(self, IP, sources, index):
+        PATH = str(sources[index][1])
+        return PATH
+
+    def M_malwareURL_IP(self, IP, sources, index):
+        PATH = str(sources[index][1])
+        return PATH
+
+    def Alienvault_IP(self, IP, sources, index):
+        PATH = str(sources[index][1] + IP + "&type=all")
+        return PATH
+
+    def IBM_XForce_IP(self, IP, sources, index):
+        PATH = str(sources[index][1] + IP)
+        return PATH
+
+    def ThreatMiner_IP(self, IP, sources, index):
+        PATH = str(sources[index][1] + IP)
+        return PATH
+
 
 
 class URLLinks():
@@ -191,11 +211,42 @@ class URLLinks():
         PATH = str(sources[index][1] + shortenToFQDN(self, URL))
         return PATH
 
-    def vURL(self, URL, sources, index):
-        PATH = str(sources[index][1] + urllib.quote_plus(URL) + "&btnvURL=Dissect&selUAStr=1&selServer=0&ref=&cbxSource=on&cbxBlacklist=on")
-        if not PATH.find("://") != -1:
-            PATH = "http://" + PATH
+    def M_urlquery(self, URL, sources, index):
+        PATH = str(sources[index][1])
         return PATH
+
+    def M_onlinelinkscan(self, URL, sources, index):
+        PATH = str(sources[index][1])
+        return PATH
+
+    def M_webroot_brightcloud(self, URL, sources, index):
+        PATH = str(sources[index][1])
+        return PATH
+
+    def M_malwareURL(self, URL, sources, index):
+        PATH = str(sources[index][1])
+        return PATH
+
+    def M_UnmaskParasites(self, URL, sources, index):
+        PATH = str(sources[index][1])
+        return PATH
+
+    def M_BuiltWith(self, URL, sources, index):
+        PATH = str(sources[index][1])
+        return PATH
+
+    def Alienvault_DOMAIN(self, URL, sources, index):
+        PATH = str(sources[index][1] + shortenToFQDN(self, URL) + "&type=all")
+        return PATH
+
+    def IBM_XForce_DOMAIN(self, URL, sources, index):
+        PATH = str(sources[index][1] + shortenToFQDN(self, URL))
+        return PATH
+
+    def ThreatMiner_DOMAIN(self, URL, sources, index):
+        PATH = str(sources[index][1] + shortenToFQDN(self, URL))
+        return PATH
+
 
 
 class SPECIALLinks():
